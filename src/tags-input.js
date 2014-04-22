@@ -34,6 +34,8 @@
  *                                                   allowLeftoverText values are ignored.
  * @param {expression} onTagAdded Expression to evaluate upon adding a new tag. The new tag is available as $tag.
  * @param {expression} onTagRemoved Expression to evaluate upon removing an existing tag. The removed tag is available as $tag.
+ * PATCH: support for l20n keys
+ * @param {string=} l20n ngL20n translation key.
  */
 tagsInput.directive('tagsInput', function($timeout, $document, tagsInputConfig) {
     function TagList(options, events) {
@@ -144,6 +146,8 @@ tagsInput.directive('tagsInput', function($timeout, $document, tagsInputConfig) 
                 maxTags: [Number, MAX_SAFE_INTEGER],
                 displayProperty: [String, 'text'],
                 allowLeftoverText: [Boolean, false],
+                // PATCH: support for l20n keys
+                l20n: [String, ''],
                 addFromAutocompleteOnly: [Boolean, false]
             });
 
